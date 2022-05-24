@@ -1,0 +1,402 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://MarCatchSheep/Scenes/NoteVisualizer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MarCatchSheep/Scenes/Player_MCS.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MarCatchSheep/Scripts/Main_Controller_MCS.gd" type="Script" id=3]
+[ext_resource path="res://MarCatchSheep/UI_Elements/Scripts/FPS_Display.gd" type="Script" id=4]
+[ext_resource path="res://MarCatchSheep/UI_Elements/Graphics/arrow2.png" type="Texture" id=5]
+[ext_resource path="res://MarCatchSheep/Visuals/TuhuBG-0001.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/MochiResized.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Fonts/MochiTooltip.tres" type="DynamicFont" id=8]
+[ext_resource path="res://MarCatchSheep/Visuals/TuhuBGbushes-01.png" type="Texture" id=9]
+[ext_resource path="res://MarCatchSheep/Visuals/bnuuy.png" type="Texture" id=10]
+[ext_resource path="res://MarCatchSheep/UI_Elements/Graphics/arrow1.png" type="Texture" id=11]
+[ext_resource path="res://MarCatchSheep/VFX/StarsBackgroundMaterial.tres" type="Material" id=12]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Bnuuy Hopping"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("../AnimationPlayer/AnimSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.4, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../AnimationPlayer/AnimSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9, 1.3, 1.6, 2, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../AnimationPlayer/AnimSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 440, 97 ), Vector2( 440, 97 ), Vector2( 569, 77 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../AnimationPlayer/AnimSprite:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -50.0, -50.0, 14.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "FadeToBlack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Tutorial/ColorTransition:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Tutorial/ColorTransition:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.04, 0.01, 0.11, 0 ), Color( 0.0392157, 0.00784314, 0.113725, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_change_scene_to_score"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Fade_Tutorial_Btns"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Tutorial/ControlsDisplay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Tutorial/ControlsDisplay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_start_game"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Tutorial/ControlsDisplay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Tutorial/ControlsDisplay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../Tutorial/ColorTransition:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../Tutorial/ColorTransition:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.0392157, 0.00784314, 0.113725, 1 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "BnuuyHopFrame",
+"speed": 1.0
+} ]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="NoteVisualizer" parent="." instance=ExtResource( 1 )]
+
+[node name="PlayerMCS" parent="." instance=ExtResource( 2 )]
+position = Vector2( 354, 501 )
+MAX_SPEED = 640
+DASH_SPEED = 2080
+ACCELERATION = 4000
+FRICTION = 4000
+DASH_FRICTION = 6000
+
+[node name="Combo_Display" type="Label" parent="PlayerMCS"]
+margin_left = 74.0
+margin_top = -127.0
+margin_bottom = -108.0
+custom_fonts/font = ExtResource( 7 )
+
+[node name="UI_Elements" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Combo_Tracker" type="Label" parent="UI_Elements"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -259.0
+margin_top = -260.0
+margin_right = -8.0
+margin_bottom = -212.0
+custom_colors/font_color = Color( 0.870588, 0.854902, 0.74902, 1 )
+custom_fonts/font = ExtResource( 7 )
+uppercase = true
+
+[node name="FPS_Display" type="Label" parent="UI_Elements"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -80.0
+margin_top = 20.0
+margin_bottom = 14.0
+text = "FPS:"
+script = ExtResource( 4 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+material = ExtResource( 12 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0212402, 0.0628052, 0.1875, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+root_node = NodePath("../TextureRect")
+"anims/Bnuuy Hopping" = SubResource( 3 )
+anims/FadeToBlack = SubResource( 9 )
+anims/Fade_Tutorial_Btns = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[node name="AnimSprite" type="AnimatedSprite" parent="Background/AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 440, 97 )
+rotation = -0.872665
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 6 )
+animation = "BnuuyHopFrame"
+
+[node name="Tutorial" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ControlsDisplay" type="Control" parent="Tutorial"]
+margin_left = 418.0
+margin_top = 277.0
+margin_right = 458.0
+margin_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Tutorial/ControlsDisplay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+columns = 2
+
+[node name="MoveControl" type="Label" parent="Tutorial/ControlsDisplay/GridContainer"]
+margin_top = 3.0
+margin_right = 64.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 8 )
+text = "Move:"
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/ControlsDisplay/GridContainer"]
+margin_left = 68.0
+margin_right = 139.0
+margin_bottom = 30.0
+rect_clip_content = true
+alignment = 1
+
+[node name="Button2" type="Button" parent="Tutorial/ControlsDisplay/GridContainer/HBoxContainer"]
+margin_left = 3.0
+margin_right = 33.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 0 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 8 )
+icon = ExtResource( 5 )
+expand_icon = true
+
+[node name="Button3" type="Button" parent="Tutorial/ControlsDisplay/GridContainer/HBoxContainer"]
+margin_left = 37.0
+margin_right = 67.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 0 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 8 )
+icon = ExtResource( 11 )
+expand_icon = true
+
+[node name="MoveControl2" type="Label" parent="Tutorial/ControlsDisplay/GridContainer"]
+margin_top = 37.0
+margin_right = 64.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 8 )
+text = "Dash:"
+uppercase = true
+
+[node name="Button" type="Button" parent="Tutorial/ControlsDisplay/GridContainer"]
+margin_left = 68.0
+margin_top = 34.0
+margin_right = 139.0
+margin_bottom = 64.0
+mouse_filter = 2
+custom_fonts/font = ExtResource( 8 )
+text = "SHIFT"
+
+[node name="ColorTransition" type="ColorRect" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0392157, 0.00784314, 0.113725, 1 )
+
+[node name="FG" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="TextureRect2" type="TextureRect" parent="FG"]
+modulate = Color( 0.0784314, 0.0823529, 0.0745098, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = 121.0
+margin_right = 110.0
+margin_bottom = 27.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+flip_h = true
+__meta__ = {
+"_edit_lock_": true
+}

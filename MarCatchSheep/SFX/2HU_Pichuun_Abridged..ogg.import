@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/2HU_Pichuun_Abridged..ogg-4d0b1fa733f0200ce717bef9e9af8fdc.oggstr"
+
+[deps]
+
+source_file="res://MarCatchSheep/SFX/2HU_Pichuun_Abridged..ogg"
+dest_files=[ "res://.import/2HU_Pichuun_Abridged..ogg-4d0b1fa733f0200ce717bef9e9af8fdc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

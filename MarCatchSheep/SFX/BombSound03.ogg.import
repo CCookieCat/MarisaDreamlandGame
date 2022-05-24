@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BombSound03.ogg-3489e1c04e67e19b019d2566894cb72b.oggstr"
+
+[deps]
+
+source_file="res://MarCatchSheep/SFX/BombSound03.ogg"
+dest_files=[ "res://.import/BombSound03.ogg-3489e1c04e67e19b019d2566894cb72b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

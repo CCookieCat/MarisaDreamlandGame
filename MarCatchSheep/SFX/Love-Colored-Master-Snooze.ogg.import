@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Love-Colored-Master-Snooze.ogg-8b1b403aa976883cbb1fec552c39e7d3.oggstr"
+
+[deps]
+
+source_file="res://MarCatchSheep/SFX/Love-Colored-Master-Snooze.ogg"
+dest_files=[ "res://.import/Love-Colored-Master-Snooze.ogg-8b1b403aa976883cbb1fec552c39e7d3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

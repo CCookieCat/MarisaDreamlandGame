@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ComboCount001.ogg-f137479c9b473c891472e1c0c23f0b1b.oggstr"
+
+[deps]
+
+source_file="res://MarCatchSheep/SFX/ComboCount001.ogg"
+dest_files=[ "res://.import/ComboCount001.ogg-f137479c9b473c891472e1c0c23f0b1b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

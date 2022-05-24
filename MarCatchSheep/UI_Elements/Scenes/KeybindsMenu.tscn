@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://MarCatchSheep/UI_Elements/Scripts/Keybind_Key_Script.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/MochiResized.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/MochiTooltip.tres" type="DynamicFont" id=3]
+
+[node name="KeybindsGUI" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.05, 0.12, 0.28, 0.5 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.734
+anchor_right = 0.5
+anchor_bottom = 0.734
+margin_left = -82.0
+margin_top = -12.0
+margin_right = 82.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 3 )
+text = "Press ESC to exit"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = -39.0
+margin_right = 48.0
+margin_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/vseparation = 16
+custom_constants/hseparation = 22
+columns = 2
+
+[node name="Left" type="Label" parent="GridContainer"]
+margin_right = 130.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 2 )
+text = "Left:"
+uppercase = true
+
+[node name="KeyInput" type="Button" parent="GridContainer"]
+margin_left = 152.0
+margin_right = 209.0
+margin_bottom = 48.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
+text = "A"
+script = ExtResource( 1 )
+action_name = "ui_left"
+
+[node name="Right" type="Label" parent="GridContainer"]
+margin_top = 64.0
+margin_right = 130.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 2 )
+text = "Right:"
+uppercase = true
+
+[node name="Button4" type="Button" parent="GridContainer"]
+margin_left = 152.0
+margin_top = 64.0
+margin_right = 209.0
+margin_bottom = 112.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
+text = "D"
+script = ExtResource( 1 )
+action_name = "ui_right"
+
+[node name="Dash" type="Label" parent="GridContainer"]
+margin_top = 128.0
+margin_right = 130.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dash:"
+uppercase = true
+
+[node name="Button5" type="Button" parent="GridContainer"]
+margin_left = 152.0
+margin_top = 128.0
+margin_right = 209.0
+margin_bottom = 176.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
+text = "Shift"
+script = ExtResource( 1 )
+action_name = "dash"

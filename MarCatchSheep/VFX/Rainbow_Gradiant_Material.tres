@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform float time_freq : hint_range(0f, 5f) = 0.2;
+
+vec3 hsb2rgb(in vec3 col){
+	vec3 rgb = clamp(abs( mod( col.x + ((TIME * time_freq) * 10.14f) + vec3(0.0,4.0,2.0) , 6.0)-3.0)-1.0, 0.0 , 1.0);
+	rgb = rgb*rgb*(3.0-2.0*rgb);
+	return col.z * mix(vec3(1f), rgb, col.y);
+}
+
+vec2 rotate(vec2 uv, vec2 pivot, float angle)
+{
+	mat2 rotation = mat2(vec2(sin(angle), -cos(angle)),
+						vec2(cos(angle), sin(angle)));
+	
+	uv -= pivot;
+	uv = uv * rotation;
+	uv += pivot;
+	return uv;
+}
+
+void fragment() {
+	
+	vec4 base = texture(TEXTURE, UV);
+	
+	vec2 rotated_uv = rotate(UV, vec2(0.5), 80f);
+	vec2 uv = rotated_uv.xy;
+	uv.y = 1f;
+	vec3 color = hsb2rgb(vec3(uv.x, 1f, uv.y));
+	
+	vec4 output = vec4(base.rgb * color, base.a);
+	COLOR = output;
+}"
+
+[resource]
+shader = SubResource( 5 )
+shader_param/time_freq = 0.2

@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://MarCatchSheep/VFX/ScoringShader.gdshader" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+[sub_resource type="NoiseTexture" id=3]
+width = 256
+height = 256
+seamless = true
+noise = SubResource( 2 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/bg_color = Color( 0.129412, 0.054902, 0.309804, 1 )
+shader_param/bg_darken_val = 0.3
+shader_param/starshineOSC = 2.0
+shader_param/star_amt = 0.999
+shader_param/battery = 0.15
+shader_param/anchor = -0.84
+shader_param/speed_scale = 1.0
+shader_param/fov = 0.2
+shader_param/grid_color = Color( 0.12549, 0.054902, 0.211765, 1 )
+shader_param/noiseTex = SubResource( 3 )

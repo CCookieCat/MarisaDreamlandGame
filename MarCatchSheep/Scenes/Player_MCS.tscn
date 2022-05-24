@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://MarCatchSheep/Scripts/Player_MCS.gd" type="Script" id=2]
+[ext_resource path="res://MarCatchSheep/Visuals/MarisSprite01.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37, 19.5 )
+
+[node name="PlayerMCS" type="KinematicBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Daze_Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="RigidBody2D" type="StaticBody2D" parent="Position2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/RigidBody2D"]
+position = Vector2( 65, -26.5 )
+shape = SubResource( 2 )
+
+[connection signal="timeout" from="Daze_Timer" to="." method="_on_Daze_Timer_timeout"]
